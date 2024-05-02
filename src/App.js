@@ -37,20 +37,34 @@ export default function App() {
 
   const equalClickHandler = (e) => {
     console.log('Num1 ' + num1 + ' | ' + 'Op ' + op + ' | ' + 'Num2 ' + num2);
-    if (op === "+") {
-      setDisp(parseInt(num1) + parseInt(num2))
-    } else if (op === "-") {
-      setDisp(parseInt(num1) - parseInt(num2))
+
+    let result = null;
+
+    if (op === "ADD") {
+      result = parseInt(num1) + parseInt(num2)
+    } else if (op === "SUB") {
+      result = parseInt(num1) - parseInt(num2)
+    } else if (op === "MUL") {
+      result = parseInt(num1) * parseInt(num2)
+    } else if (op === "DIV") {
+      result = parseInt(num1) / parseInt(num2)
     } else {
-      setDisp('Invalid Operation');
+      result = 'Invalid Operation'
     }
+    setDisp(result)
+    setNum1(result);
+    setNum2(null);
+    setOp(null);
+
   }
 
   const numberClickHandler = (e) => {
     e.preventDefault();
     const value  = e.target.innerHTML;
 
-    if (op === null) {
+    if (disp === 0 && value === '0') {
+      // don't do anything
+    } else if (op === null) {
       if(num1 === null) {
         setNum1(value);
         setDisp(value);
@@ -84,22 +98,23 @@ export default function App() {
       <div className="CalcContainer">
         <CalcDisplay display={disp} />
         <div className="ButtonContainer">
-          <CalcButton label={"÷"} onClick={opClickHandler}/>
           <CalcButton label={7} onClick={numberClickHandler}/>
           <CalcButton label={8} onClick={numberClickHandler}/>
           <CalcButton label={9} onClick={numberClickHandler}/>
-          <CalcButton label={"x"} onClick={opClickHandler}/>
+          <CalcButton label={"DIV"} onClick={opClickHandler}/>
           <CalcButton label={4} onClick={numberClickHandler}/>
           <CalcButton label={5} onClick={numberClickHandler}/>
           <CalcButton label={6} onClick={numberClickHandler}/>
-          <CalcButton label={"+"} onClick={opClickHandler}/>
+          <CalcButton label={"MUL"} onClick={opClickHandler}/>
           <CalcButton label={1} onClick={numberClickHandler}/>
           <CalcButton label={2} onClick={numberClickHandler}/>
           <CalcButton label={3} onClick={numberClickHandler}/>
-          <CalcButton label={"-"}  onClick={opClickHandler}/>
+          <CalcButton label={"SUB"}  onClick={opClickHandler}/>
           <CalcButton label={"CLR"} onClick={clrClickHandler}/>
           <CalcButton label={0} onClick={numberClickHandler}/>
-          <CalcButton label={"="} onClick={equalClickHandler}/>
+          <CalcButton label={"EQ"} onClick={equalClickHandler}/>
+          <CalcButton label={"ADD"} onClick={opClickHandler}/>
+
         </div>
       </div>
     </div>
