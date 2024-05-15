@@ -1,36 +1,94 @@
 .App {
   box-sizing: border-box;
   text-align: center;
+  font-family: 'Roboto', sans-serif;
+  padding: 20px;
+  background-color: #EEF7FF;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: bold;
 }
 
 .CalcContainer {
-  width: 500px;
-  margin: auto;
+  background-color: #00215E;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 355px;
+  padding: 20px;
 }
 
 .CalcDisplay {
-  border: 1px solid #505050;
-  height: 40px;
+  border: none;
+  border-bottom: 2px solid #505050;
+  height: 60px;
   font-size: 2em;
-  margin-bottom: 2px;
+  margin-bottom: 20px;
   padding: 10px;
   text-align: right;
-  background: gray;
+  background: #fafafa;
+  color: #333;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 100%;
+  font-weight: bold;
 }
 
 .ButtonContainer {
   display: grid;
-  gap: 2px;
+  gap: 10px;
   grid-template-columns: repeat(4, 1fr);
 }
 
 .ButtonContainer > button {
   justify-content: center;
-  border: 1px solid #1C1C1C;
-  font-size: 2em;
-  background-color: yellow;
-
+  border: none;
+  font-size: 1.5em;
+  padding: 15px;
+  background-color: #1679AB;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
 }
 
+.ButtonContainer > button:hover {
+  background-color: #45a049;
+}
 
+.ButtonContainer > button:active {
+  background-color: #3e8e41;
+}
 
+.ButtonContainer > button.CalcButton.operator {
+  background-color: #FFC55A;
+}
+
+.ButtonContainer > button.CalcButton.operator:hover {
+  background-color: #fb8c00;
+}
+
+.ButtonContainer > button.CalcButton.operator:active {
+  background-color: #f57c00;
+}
+
+.ButtonContainer > button.CalcButton.special {
+  background-color: #FC4100;
+}
+
+.ButtonContainer > button.CalcButton.special:hover {
+  background-color: #e53935;
+}
+
+.ButtonContainer > button.CalcButton.special:active {
+  background-color: #d32f2f;
+}
